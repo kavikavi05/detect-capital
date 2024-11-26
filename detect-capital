@@ -1,0 +1,39 @@
+bool detectCapitalUse(char* word) {
+    if(strlen(word) == 1)
+        return true;
+    bool first = false;
+    int ch0 = word[0];
+    if('A' <= ch0 && ch0 <= 'Z'){
+        first = true;
+    }
+    bool sec = false;
+    int ch1 = word[1];
+    if('A' <= ch1 && ch1 <= 'Z'){
+        sec = true;
+    }
+
+    if(first && sec){
+        int i = 2;
+    while(word[i] != '\0'){
+        int ch = word[i];
+        if(ch > 'Z' || ch < 'A')
+            return false;
+        i++;
+    }
+    return true;
+    }
+    else if(!first && sec)
+        return false;
+    else{
+    int i = 2;
+    while(word[i] != '\0'){
+        int ch = word[i];
+         if('A' <= ch && ch <= 'Z'){
+        return false;
+    }
+        i++;
+    }
+    return true;
+    }
+    return false;
+}
